@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 70px;
+  height: 8vh;
+  background-color: #12d18e;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  top: 0;
+  z-index: 100;
+  width: 100%;
+}
+
+.title {
+  font-size: large;
+  font-weight: 700;
+}
+.mbTitle {
+  display: none;
+}
+.themebtn {
+  cursor: pointer;
+}
+@media screen and (max-width: 668px) {
+  .container {
+    height: max-content;
+    padding: 10px 10px;
+  }
+  .mbTitle {
+    display: block;
+    font-size: large;
+    font-weight: 700;
+  }
+}

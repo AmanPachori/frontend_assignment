@@ -1,0 +1,308 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 500px;
+  width: 50%;
+  max-width: 900px;
+  height: 40px;
+  margin-right: 85px;
+}
+
+.parentContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.searchBarContainer {
+  display: flex;
+  width: 100%;
+  min-width: 500px;
+  max-width: 900px;
+  align-items: center;
+  background-color: var(--background);
+  border-radius: 90px;
+  padding: 2px 15px;
+}
+
+.searchBarContainer input {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 0 10px;
+  height: 40px;
+  color: var(--foreground);
+  background-color: var(--background);
+}
+
+.suggestions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: var(--background);
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  min-width: 450px;
+  max-width: 890px;
+  z-index: 100;
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+.suggestions::-webkit-scrollbar {
+  width: 5px;
+}
+
+.suggestions::-webkit-scrollbar-thumb {
+  background-color: var(--border-color);
+  border-radius: 5px;
+}
+
+.suggestionItems {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: var(--background);
+  /* transition: all 0.2s ease-in-out; */
+}
+.apiLimitReached {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: var(--background);
+}
+
+.suggestionItems:first-child {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.suggestionItems:hover {
+  background-color: var(--foreground);
+  opacity: 0.4;
+  color: var(--background);
+}
+
+.container .searchIcon {
+  color: #555;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 668px) {
+  .container {
+    min-width: 100px;
+    width: 70%;
+    max-width: 350px;
+    height: 40px;
+    margin-right: 0;
+  }
+
+  .suggestions {
+    max-width: 290px;
+    min-width: 200px;
+    margin-top: 2px;
+  }
+
+  .suggestionItems {
+    padding: 10px 10px;
+    font-size: smaller;
+  }
+
+  .parentContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .searchBarContainer {
+    display: flex;
+    width: 100px;
+    width: 100%;
+    min-width: 200px;
+    max-width: 350px;
+    align-items: center;
+    /* opacity: 1; */
+    /* z-index: 4000; */
+    background-color: var(--background);
+    border-radius: 90px;
+    padding: 2px 15px;
+  }
+
+  .searchBarContainer input {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 0 10px;
+    height: 40px;
+    color: var(--foreground);
+    background-color: var(--background);
+  }
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 500px;
+  width: 50%;
+  max-width: 900px;
+  height: 40px;
+  margin-right: 85px;
+}
+
+.parentContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.searchBarContainer {
+  display: flex;
+  width: 100%;
+  min-width: 500px;
+  max-width: 900px;
+  align-items: center;
+  background-color: var(--background);
+  border-radius: 90px;
+  padding: 2px 15px;
+}
+
+.searchBarContainer input {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 0 10px;
+  height: 40px;
+  color: var(--foreground);
+  background-color: var(--background);
+}
+
+.suggestions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: var(--background);
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  min-width: 450px;
+  max-width: 890px;
+  z-index: 100;
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+.suggestions::-webkit-scrollbar {
+  width: 5px;
+}
+
+.suggestions::-webkit-scrollbar-thumb {
+  background-color: var(--border-color);
+  border-radius: 5px;
+}
+
+.suggestionItems {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: var(--background);
+  /* transition: all 0.2s ease-in-out; */
+}
+.apiLimitReached {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: var(--background);
+}
+
+.suggestionItems:first-child {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.suggestionItems:hover {
+  background-color: var(--foreground);
+  opacity: 0.4;
+  color: var(--background);
+}
+
+.container .searchIcon {
+  color: #555;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 668px) {
+  .container {
+    min-width: 100px;
+    width: 70%;
+    max-width: 350px;
+    height: 40px;
+    margin-right: 0;
+  }
+
+  .suggestions {
+    max-width: 290px;
+    min-width: 200px;
+    margin-top: 2px;
+  }
+
+  .suggestionItems {
+    padding: 10px 10px;
+    font-size: smaller;
+  }
+
+  .parentContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .searchBarContainer {
+    display: flex;
+    width: 100px;
+    width: 100%;
+    min-width: 200px;
+    max-width: 350px;
+    align-items: center;
+    /* opacity: 1; */
+    /* z-index: 4000; */
+    background-color: var(--background);
+    border-radius: 90px;
+    padding: 2px 15px;
+  }
+
+  .searchBarContainer input {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 0 10px;
+    height: 40px;
+    color: var(--foreground);
+    background-color: var(--background);
+  }
+}

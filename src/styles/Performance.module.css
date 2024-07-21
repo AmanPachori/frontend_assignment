@@ -1,0 +1,65 @@
+.priceLimitContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--vertical-pad) var(--hor-pad);
+}
+
+.priceLimit {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+}
+
+.pricePoint {
+  font-weight: 600;
+}
+
+.priceLimitContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.priceLimit {
+  text-align: center;
+}
+
+.priceLabel {
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.pricePoint {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.priceIndicator {
+  flex-grow: 1;
+  margin: 0 20px;
+  position: relative;
+  height: 4px;
+}
+
+.indicatorBar {
+  width: 100%;
+  height: 100%;
+  background-color: #4caf50;
+  border-radius: 2px;
+}
+
+.currentPrice {
+  position: absolute;
+  top: 50%;
+  left: 50%; /* Adjust this to position the current price indicator */
+  transform: translate(-50%, -20%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
