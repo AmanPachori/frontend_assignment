@@ -22,7 +22,7 @@ const CryptoGraphRangeSelector = ({
             key={`${index}-${val}`}
             onClick={() => onChange && onChange(val)}
           >
-            {val}
+            {val} D
           </button>
         ))}
     </div>

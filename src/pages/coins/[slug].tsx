@@ -52,28 +52,34 @@ const Coins = () => {
         }
       });
     }
-  }, [router.query.slug, dispatch, cryptoData1]);
+  }, [router.query.slug, dispatch]);
 
   useEffect(() => {
-    if (router.query.slug) {
-      Service.getCompanyGraph(router.query.slug as string, activeRange)
-        .then((res) => {
+    const fetchGraphData = async () => {
+      setLoading(true);
+      if (router.query.slug) {
+        try {
+          const res = await Service.getCompanyGraph(
+            router.query.slug as string,
+            activeRange
+          );
           if (res === null) {
             setApiLimitReached(true);
           } else {
             dispatch(setGraphData(res));
             setGraphData1(res);
           }
-        })
-        .catch((err) => {
-          console.log(err);
+        } catch (err) {
+          console.error(err);
           setApiLimitReached(true);
-        })
-        .finally(() => {
+        } finally {
           setLoading(false);
-        });
-    }
-  }, [router.query.slug, activeRange, dispatch, graphData1]);
+        }
+      }
+    };
+
+    fetchGraphData();
+  }, [router.query.slug, activeRange, dispatch]);
 
   return (
     <Layout>
@@ -81,7 +87,7 @@ const Coins = () => {
       !cryptoData1 ||
       !Object.keys(cryptoData1).length ||
       !Object.keys(graphData1).length ? (
-        <div>
+        <div className={styles.conatiner}>
           <Spinner
             className={styles.spinner}
             alignSelf={"center"}
@@ -92,7 +98,7 @@ const Coins = () => {
           />
         </div>
       ) : apiLimitReached ? (
-        <ErrorMessage msg="Sorry, but we've reached our API limit for the day. We appreciate your enthusiasm! Please check back tomorrow to access our services again." />
+        <ErrorMessage msg=" Sorry, but we've reached our API limit . Please check back after 5 min to acess our  services again." />
       ) : (
         <>
           <div>

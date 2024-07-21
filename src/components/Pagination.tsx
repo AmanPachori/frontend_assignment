@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "@/styles/Pagination.module.css"; 
+import styles from "@/styles/Pagination.module.css";
 interface PaginationProps {
   currentPage: number;
   totalPages: number;
@@ -25,7 +25,7 @@ const Pagination = ({
             disabled={currentPage === 1}
             className={styles.pageLink}
           >
-            Previous
+            Prev
           </button>
         </li>
 

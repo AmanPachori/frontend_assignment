@@ -1,5 +1,5 @@
 import { cryptoInfo } from "@/types/CoinInfo";
-import { DropResult } from "react-beautiful-dnd";
+import { DropResult } from "@hello-pangea/dnd";
 
 export const onDragEnd = (
   result: DropResult,

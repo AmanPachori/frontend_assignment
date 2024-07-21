@@ -9,9 +9,10 @@ import { cryptoHeader, wishlistHeader } from "@/constants/headers";
 type ExplorePageProps = {
   explore: cryptoInfo[];
   wishlist: cryptoInfo[];
+  activeTab: string;
 };
 
-const ExplorePage = ({ explore, wishlist }: ExplorePageProps) => {
+const ExplorePage = ({ explore, wishlist, activeTab }: ExplorePageProps) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const itemsPerPage = 15;
 
@@ -36,7 +37,7 @@ const ExplorePage = ({ explore, wishlist }: ExplorePageProps) => {
           {...provided.droppableProps}
         >
           <div className={styles.leftColumn}>
-            <Droppable droppableId="explore">
+            <Droppable droppableId={activeTab}>
               {(provided, snapshot) => (
                 <div
                   className={`${styles.table} ${
@@ -46,7 +47,7 @@ const ExplorePage = ({ explore, wishlist }: ExplorePageProps) => {
                   {...provided.droppableProps}
                 >
                   <CryptoTable
-                    tablename="explore"
+                    tablename={activeTab}
                     data={getPaginatedData()}
                     headers={cryptoHeader}
                     explore

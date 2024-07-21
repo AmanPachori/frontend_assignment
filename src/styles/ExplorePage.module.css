@@ -3,14 +3,14 @@
   justify-content: space-between;
   align-items: flex-start;
   margin-top: 20px;
-  min-height: 90vh;
+  height: 90vh;
 }
 
 .leftColumn {
   flex: 1;
   margin-right: 20px;
   width: 70vw;
-  min-height: 90vh;
+  height: 100% !important;
 }
 
 .rightColumn {
@@ -20,44 +20,33 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  min-height: 90vh;
   margin-left: 40px;
 }
 .scroll-container {
   overflow-y: auto;
   max-height: 100vh;
 }
-.graph {
-  margin-bottom: 20px;
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  height: 60vh;
-}
 
 .table {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   width: 100%;
 }
 
 @media screen and (max-width: 1204px) {
   .container {
     flex-direction: column;
-    align-items: stretch;
   }
 
   .leftColumn,
   .rightColumn {
     width: 100% !important;
     margin: 0 0 20px 0;
-    min-height: auto;
   }
-
+  .leftColumn {
+    height: 100% !important;
+  }
   .rightColumn {
-    margin-left: 0;
-  }
-
-  .graph {
-    height: 50vh;
+    margin-top: var(--vertical-mar);
   }
 }
 
@@ -65,6 +54,4 @@
   .container {
     padding: 0px;
   }
-}
-@media screen and (max-width: 400px) {
 }

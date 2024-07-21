@@ -61,7 +61,7 @@ export default function Home() {
     <DragDropContext onDragEnd={handleDragEnd}>
       <Layout>
         {loading ? (
-          <div>
+          <div className={styles.conatiner}>
             <Spinner
               className={styles.spinner}
               alignSelf={"center"}
@@ -72,7 +72,7 @@ export default function Home() {
             />
           </div>
         ) : trending.length === 0 || apiLimitReached ? (
-          <ErrorMessage msg="Sorry, but we've reached our API limit for the day. We appreciate your enthusiasm! Please check back tomorrow to access our services again." />
+          <ErrorMessage msg=" Sorry, but we've reached our API limit . Please check back after 5 min to acess our  services again." />
         ) : (
           <>
             <div>

@@ -63,7 +63,7 @@ const CryptoTable: React.FC<CryptoTableProps> = ({
           {data?.map((crypto: cryptoInfo, index: number) => (
             <Draggable
               key={crypto.id}
-              draggableId={crypto?.id.toString().concat(crypto.name)}
+              draggableId={crypto?.id.toString().concat(tablename)}
               index={index + (startindex ? (startindex - 1) * 15 : 0)}
             >
               {(provided, snapshot) => (

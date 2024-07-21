@@ -19,7 +19,7 @@ const SearchBar = () => {
 
   const debounceSearch = debounce(() => {
     Service.getSearchSuggestions(search).then((res) => {
-      if (res.hasOwnProperty("Information")) {
+      if (res.length === 0) {
         setSuggestions([]);
         setApiLimitReached(true);
         return;
@@ -88,7 +88,7 @@ const SearchBar = () => {
             value={search}
             onChange={handleSearch}
             type="text"
-            placeholder="Search stock & etfs"
+            placeholder="Search Crypto"
           />
         </div>
         {showSuggestions && (

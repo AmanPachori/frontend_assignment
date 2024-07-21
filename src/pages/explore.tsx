@@ -32,7 +32,7 @@ export default function Explore() {
     setActiveTab(tab);
   };
   useEffect(() => {
-    Service.getTrendingCryptodata("100")
+    Service.getTrendingCryptodata("75")
       .then((res) => {
         if (res == null) {
           setApiLimitReached(true);
@@ -52,10 +52,10 @@ export default function Explore() {
     onDragEnd(
       result,
       wishlist,
-      explore,
+      activeTab === "All Coins" ? explore : recent,
       (item: cryptoInfo) => dispatch(addToWishlist(item)),
       (item: cryptoInfo) => dispatch(removeFromWishlist(item)),
-      "explore"
+      activeTab === "All Coins" ? "explore" : "recent"
     );
   };
 
@@ -63,7 +63,7 @@ export default function Explore() {
     <DragDropContext onDragEnd={handleDragEnd}>
       <Layout>
         {loading ? (
-          <div>
+          <div className={styles.conatiner}>
             <Spinner
               className={styles.spinner}
               alignSelf={"center"}
@@ -74,7 +74,7 @@ export default function Explore() {
             />
           </div>
         ) : explore.length === 0 || apiLimitReached ? (
-          <ErrorMessage msg="Sorry, but we've reached our API limit for the day. We appreciate your enthusiasm! Please check back tomorrow to access our services again." />
+          <ErrorMessage msg=" Sorry, but we've reached our API limit . Please check back after 5 min to acess our  services again." />
         ) : (
           <>
             <div className={styles.body}>
@@ -86,6 +86,7 @@ export default function Explore() {
               <ExplorePage
                 explore={activeTab === "All Coins" ? explore : recent}
                 wishlist={wishlist}
+                activeTab={activeTab === "All Coins" ? "explore" : "recent"}
               />
             </div>
           </>
