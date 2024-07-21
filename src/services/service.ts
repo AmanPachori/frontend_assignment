@@ -1,13 +1,18 @@
+import axios from "axios";
 import { CoinInfo, Graph, PriceDataPoint } from "@/types/Coin";
 import { cryptoInfo } from "@/types/CoinInfo";
 import { aggregateData } from "@/utils/GraphDataMapping";
 
-const BASE_URL = "https://api.coingecko.com/api/v3/coins";
+const BASE_URL = "/api/coins";
 const API_KEY = "CG-jFS6vstt1QCgXbeNxQKRWteC";
-const options = {
-  method: "GET",
-  headers: { accept: "application/json", "x-cg-demo-api-key": API_KEY },
-};
+
+const axiosInstance = axios.create({
+  baseURL: BASE_URL,
+  headers: {
+    accept: "application/json",
+    "x-cg-demo-api-key": API_KEY,
+  },
+});
 
 type SearchSuggestion = {
   id: string;
@@ -16,35 +21,33 @@ type SearchSuggestion = {
 
 export class Service {
   public static async getTrendingCryptodata(perPage: string): Promise<any> {
-    const response = await fetch(
-      `${BASE_URL}/markets?vs_currency=usd&per_page=${perPage} `,
-      options
-    );
-    const Data = await response.json();
-    return Data;
+    const response = await axiosInstance.get(`/markets`, {
+      params: { vs_currency: "usd", per_page: perPage },
+    });
+    return response.data;
   }
+
   public static async getTrendingCryptodatabyId(id: string): Promise<any> {
-    const response = await fetch(
-      `${BASE_URL}/markets?vs_currency=usd&ids=${id} `,
-      options
-    );
-    const Data = await response.json();
-    return Data;
+    const response = await axiosInstance.get(`/markets`, {
+      params: { vs_currency: "usd", ids: id },
+    });
+    return response.data;
   }
+
   public static async getCryptoDetails(id: string): Promise<CoinInfo | null> {
-    const response = await fetch(`${BASE_URL}/${id}`, options);
-    const Data = await response.json();
-    return Data;
+    const response = await axiosInstance.get(`/${id}`);
+    return response.data;
   }
+
   public static async getCompanyGraph(
     id: string,
     activeRange: string
   ): Promise<Graph[]> {
-    const response = await fetch(
-      `${BASE_URL}/${id}/market_chart?vs_currency=usd&days=${activeRange} `,
-      options
-    );
-    const data = await response.json();
+    const response = await axiosInstance.get(`/${id}/market_chart`, {
+      params: { vs_currency: "usd", days: activeRange },
+    });
+    const data = response.data;
+
     if (!Array.isArray(data.prices)) {
       throw new Error("Unexpected data format");
     }
@@ -53,21 +56,17 @@ export class Service {
       ([timestamp, price]: [number, number]) => ({ timestamp, price })
     );
 
-    console.log();
-
     return aggregateData(priceData, activeRange);
   }
 
   public static async getSearchSuggestions(
     keyword: string
   ): Promise<SearchSuggestion[]> {
-    const response = await fetch(
-      `https://api.coingecko.com/api/v3/search?query=${encodeURIComponent(
-        keyword
-      )}`
-    );
+    const response = await axios.get("/api/search", {
+      params: { query: keyword },
+    });
 
-    const data = await response.json();
+    const data = response.data;
 
     if (!data.coins || !Array.isArray(data.coins)) {
       return [];

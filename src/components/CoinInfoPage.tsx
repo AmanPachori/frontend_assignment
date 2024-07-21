@@ -20,7 +20,6 @@ const CoinInfoPage = ({
   activeRange,
   changeActiveRange,
 }: CoinInfoPageProps) => {
-  console.log(cryptoInfo);
   return (
     <div className={styles.container}>
       <div className={styles.leftColumn}>

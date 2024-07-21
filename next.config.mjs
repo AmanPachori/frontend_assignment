@@ -4,6 +4,14 @@ const nextConfig = {
   images: {
     domains: ["coin-images.coingecko.com", "assets.coingecko.com"],
   },
+  async rewrites() {
+    return [
+      {
+        source: "/api/:path*",
+        destination: "https://api.coingecko.com/api/v3/:path*",
+      },
+    ];
+  },
 };
 
 export default nextConfig;

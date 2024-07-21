@@ -19,7 +19,6 @@ const SearchBar = () => {
 
   const debounceSearch = debounce(() => {
     Service.getSearchSuggestions(search).then((res) => {
-      console.log(res);
       if (res.hasOwnProperty("Information")) {
         setSuggestions([]);
         setApiLimitReached(true);
