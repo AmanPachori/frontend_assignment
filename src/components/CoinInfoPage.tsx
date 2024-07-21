@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "@/styles/CoinInfoPage.module.css";
 import Performance from "./Performace";
-
+import parse from "html-react-parser";
 import { CoinInfo, Graph } from "@/types/Coin";
 import Image from "next/image";
 import CryptoGraph from "./CryptoGraph";
@@ -72,7 +72,7 @@ const CoinInfoPage = ({
 
           <div>
             <p className={styles.title}>About Company</p>
-            <span>{cryptoInfo.description.en}</span>
+            <span>{parse(cryptoInfo.description.en)}</span>
           </div>
         </div>
       </div>

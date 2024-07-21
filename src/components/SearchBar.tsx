@@ -25,7 +25,7 @@ const SearchBar = () => {
       }
       setSuggestions(res);
     });
-  }, 300);
+  }, 100);
 
   const fetchFromSessionStorage = () => {
     const data = sessionStorage.getItem("searchSuggestions");
