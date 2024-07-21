@@ -21,7 +21,6 @@ const SearchBar = () => {
     Service.getSearchSuggestions(search).then((res) => {
       if (res.length === 0) {
         setSuggestions([]);
-        setApiLimitReached(true);
         return;
       }
       setSuggestions(res);
